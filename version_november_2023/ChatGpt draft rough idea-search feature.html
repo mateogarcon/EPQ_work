@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Football Information</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      margin: 10px;
+      width: 300px;
+    }
+
+    #results {
+      padding: 20px;
+    }
+
+    .item {
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Football Information</h1>
+    <input type="text" id="searchInput" placeholder="Search...">
+  </header>
+
+  <div id="results"></div>
+
+  <script>
+    // Sample data for clubs and players
+    const clubs = [
+      { name: "Manchester United", country: "England" },
+      { name: "Liverpool FC", country: "England" },
+      { name: "Chelsea FC", country: "England" },
+      // Add more clubs as needed
+    ];
+
+    const players = [
+      { name: "Lionel Messi", club: "Inter Miami", position: "Forward" },
+      { name: "Cristiano Ronaldo", club: "Al Nassr", position: "Forward" },
+      { name: "Harry Kane", club: "Tottenham Hotspur", position: "Forward" },
+      // Add more players as needed
+    ];
+
+    // Function to perform search
+    function search() {
+      const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+      const resultsContainer = document.getElementById("results");
+      resultsContainer.innerHTML = "";
+
+      // Search in clubs
+      const clubResults = clubs.filter(club => club.name.toLowerCase().includes(searchTerm));
+      clubResults.forEach(club => {
+        const clubDiv = document.createElement("div");
+        clubDiv.classList.add("item");
+        clubDiv.textContent = `Club: ${club.name}, Country: ${club.country}`;
+        resultsContainer.appendChild(clubDiv);
+      });
+
+      // Search in players
+      const playerResults = players.filter(player => player.name.toLowerCase().includes(searchTerm));
+      playerResults.forEach(player => {
+        const playerDiv = document.createElement("div");
+        playerDiv.classList.add("item");
+        playerDiv.textContent = `Player: ${player.name}, Club: ${player.club}, Position: ${player.position}`;
+        resultsContainer.appendChild(playerDiv);
+      });
+    }
+
+    // Add event listener for input change
+    document.getElementById("searchInput").addEventListener("input", search);
+  </script>
+
+</body>
+</html>
