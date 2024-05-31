@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Games</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="image-container">
+        <img src="stadium3.jpg" alt="Football pitch">
+        <div class="overlay-text">Football statistics</div>
+        <h1>2020-2024 Games</h1>
+            <div class="search-container">
+                <input type="text" id="search_date" placeholder="Search by date..." onkeyup="showSuggestion(this.value)">
+                <input type="text" id="search_club" placeholder="Search by club name..." onkeyup="showSuggestion(this.value)">
+                <div id="suggestions"></div>
+            </div>
+        <table id="gamesTable">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Home Club</th>
+                    <th>Away Club</th>
+                    <th>Score</th>
+                    <th>Stadium</th>
+                    <th>Competition</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be populated here by JavaScript -->
+            </tbody>
+        </table>
+        <div class="pagination">
+            <button id="prevPage">Previous</button>
+            <span id="pageNumber">1</span>
+            <button id="nextPage">Next</button>
+        </div>
+    </div>
+    <script src="clubs_db.js"></script>
+    <script src="games_db.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
