@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="clubName">Club Name</h1>
+      <!-- Filter inputs -->
+        <div class="filters">
+            <label for="minPrice">Min Price:</label>
+            <input type="number" id="minPrice">
+
+            <label for="maxPrice">Max Price:</label>
+            <input type="number" id="maxPrice">
+
+            <label for="position">Position:</label>
+            <input type="text" id="position">
+
+            <label for="dob">Date of Birth (dd/mm/yyyy):</label>
+            <input type="date" id="dob">
+
+            <button onclick="applyFilters()">Apply Filters</button>
+        </div>
+
+        <table id="playersTable">
+            <thead>
+                <tr>
+                    <th>Player ID</th>
+                    <th>Player Name</th>
+                    <th>Position</th>
+                    <th>Date of birth</th>
+                    <th>Country of birth</th>
+                    <th>Market value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be populated here by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+    <script src="clubs_db.js"></script>
+    <script src="players_db.js"></script>
+    <script src="clubs.js"></script>
+</body>
+</html>
